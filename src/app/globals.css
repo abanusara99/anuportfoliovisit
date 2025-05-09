@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%; /* Complete Black for body and main menu background */
+    --foreground: 0 0% 100%; /* White */
+
+    --light-black-gradient-start: 0 0% 0%; /* Black for the top of the body gradient (now full body black) */
+
+    --card: 0 0% 0%; /* Black for Card background */
+    --card-foreground: 0 0% 100%; /* White text on cards */
+
+    --popover: 20 70% 12%; /* Darker Orange for popover - kept for popovers */
+    --popover-foreground: 0 0% 100%; /* White */
+
+    --primary: 40 90% 55%; /* Brighter Orange for primary elements like buttons */
+    --primary-foreground: 0 0% 0%; /* Black text for buttons */
+
+    --secondary: 15 70% 20%; /* Deeper Dark Orange/Red */
+    --secondary-foreground: 0 0% 0%; /* Black text for buttons */
+
+    --muted: 25 60% 18%; /* Muted Dark Orange */
+    --muted-foreground: 0 0% 80%; /* Light Gray/Off-White for muted text */
+
+    --accent: 0 100% 50%; /* Bright Red for accent */
+    --accent-foreground: 0 0% 0%; /* Black text for accent buttons */
+
+    --destructive: 0 70% 35%; /* Destructive Red */
+    --destructive-foreground: 0 0% 0%; /* Black text for destructive buttons */
+
+    --border: 30 100% 70%;      /* Light Orange border for cards - default border is now light orange */
+    --card-border: 30 100% 70%; /* Specific light orange border for cards */
+
+
+    --input: 0 0% 100%; /* White for input background */
+    --input-foreground: 0 0% 0%; /* Black text for input */
+
+    --ring: 0 100% 60%; /* Light Red/Pink for ring */
+    --radius: 0.5rem;
+
+    --chart-1: 45 90% 60%; /* Yellow */
+    --chart-2: 10 90% 60%; /* Orange-Red */
+    --chart-3: 0 90% 60%;  /* Red */
+    --chart-4: 30 90% 55%; /* Orange */
+    --chart-5: 350 90% 65%;/* Pinkish-Red */
+
+    --fire-border: 30 100% 50%; /* Orange for specific highlights like Gmail icon */
+
+    /* Custom sidebar theme variables - Dark Black Orange Theme */
+    --sidebar-background: 0 0% 0%; /* Complete Black for mobile menu background */
+    --sidebar-foreground: 0 0% 100%; /* White */
+    --sidebar-primary: 40 90% 50%; /* Brighter Orange for sidebar primary elements */
+    --sidebar-primary-foreground: 0 0% 0%; /* Black text for sidebar buttons */
+    --sidebar-accent: 0 100% 55%; /* Bright Red for sidebar accent */
+    --sidebar-accent-foreground: 0 0% 0%; /* Black text for sidebar accent buttons */
+    --sidebar-border: 0 0% 10%; /* Very Dark Gray sidebar border */
+    --sidebar-ring: 0 100% 65%; /* Light Red for sidebar ring */
+  }
+
+  /* .dark class is not being used for the main theme directly, but keeping for potential future use */
+  .dark {
+    --background: 0 0% 5%; /* Very Dark Gray/Off-Black for dark theme */
+    --foreground: 0 0% 95%; /* Off-White for dark theme text */
+
+    --card: 0 0% 0%; /* Black for Card background in dark theme */
+    --card-foreground: 0 0% 95%; /* Off-white text on cards in dark theme */
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 35 100% 50%; /* Bright Orange for primary buttons in dark theme */
+    --primary-foreground: 0 0% 0%; /* Black text on buttons in dark theme */
+
+    --secondary: 5 80% 30%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 100% 50%; /* Vibrant Red */
+    --accent-foreground: 0 0% 0%; /* Black text on accent in dark theme */
+
+    --destructive: 0 60% 40%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 30 100% 70%; /* Light Orange border in dark theme */
+    --card-border: 30 100% 70%; /* Specific light orange border for cards in dark theme */
+
+    --input: 0 0% 12%;
+    --input-foreground: 0 0% 95%;
+    --ring: 0 100% 60%;
+    
+    --fire-border: 30 100% 50%;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 35 100% 45%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 100% 45%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border; /* Default border color from theme (light orange) */
+  }
+  body {
+    /* Apply a linear gradient background: light black at the top, fire color at the bottom */
+    /* Updated to full black background */
+    background-image: linear-gradient(to bottom, hsl(var(--light-black-gradient-start)), hsl(var(--background)));
+    background-color: hsl(var(--background)); /* Fallback solid color (now black) */
+    @apply text-foreground; /* Global text color (white) */
+    font-feature-settings: "rlig" 1, "calt" 1;
+    /* min-h-screen is applied via className in RootLayout, this ensures gradient covers view */
+  }
+}
+
+/* Smoke Particle Styles */
+.smoke-particle {
+  position: fixed;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.6) 20%, rgba(255, 255, 255, 0) 50%);
+  border-radius: 50%;
+  animation: smoke-fade-out var(--particle-lifespan, 0.7s) forwards; /* Use CSS variable */
+  transform: translate(-50%, -50%); /* Center particle on cursor */
+  z-index: 9999; /* Ensure particles are on top */
+  opacity: 1; /* Start fully opaque for the gradient to control transparency */
+}
+
+@keyframes smoke-fade-out {
+  0% {
+    opacity: 1; /* Start at full opacity, let gradient handle initial shape */
+    transform: translate(-50%, -50%) scale(0.7); /* Adjust scale for crispness */
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -80%) scale(1.1); /* Adjust scale for crispness */
+  }
+}
+
+/* Flipping Card Styles */
+.flip-card-container {
+  perspective: 1000px; /* For 3D effect */
+}
+
+.flip-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the back side when not facing */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem; /* Match card rounding, will be overridden by image's rounded-full if image is full size */
+  overflow: hidden; /* Ensure images don't spill out */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: add a subtle shadow */
+  border: 0px solid hsl(var(--card-border)); /* Apply card border to front and back */
+}
+
+.flip-card-front {
+  background-color: hsl(var(--card)); /* Card background color */
+  color: hsl(var(--card-foreground));
+}
+
+.flip-card-back {
+  background-color: hsl(var(--card)); /* Card background color */
+  color: hsl(var(--card-foreground));
+  transform: rotateY(180deg);
+}
+
+.flip-card-back img, .flip-card-front img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+/* Ensure profile images specifically are rounded full */
+.profile-image {
+  border-radius: 9999px !important; /* full circle, !important to ensure it overrides other styles */
+  /* border: 2px solid hsl(var(--border)); Removed border */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid hsl(var(--card-border)); /* Apply card border to front and back */
+}
+
+
+/* Typing effect - if specific styling is needed */
+.typing-effect {
+  /* Example: add a blinking cursor if desired */
+  /* border-right: 2px solid hsl(var(--foreground)); */
+  /* animation: blink-caret 0.75s step-end infinite; */
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: hsl(var(--foreground)); }
+}
+
+/* Specific styles for general cards to use --card-border if not overridden */
+.card-with-theme-border {
+  border: 1px solid hsl(var(--card-border));
+}
