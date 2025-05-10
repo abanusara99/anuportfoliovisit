@@ -257,6 +257,8 @@ export default function Home() {
         {/* Achievements Section */}
         <div id="achievements" className="pt-16 text-center w-full max-w-6xl mx-auto mb-16">
           <h2 className="text-2xl font-bold mb-12">Achievements</h2>
+
+        {/* Credly certifications and badges */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> {/* Use grid for responsive columns and gap */}
             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
               <CardContent className="pt-6 p-4">
@@ -272,7 +274,8 @@ export default function Home() {
                 </Button>
               </CardFooter>
             </Card>
-
+            
+            {/* Mentorness Internship/ Workshop Achievement */}
             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
               <CardContent className="pt-6 p-4">
                 <CardTitle>Internship from Mentorness</CardTitle>
@@ -286,6 +289,21 @@ export default function Home() {
                 </Button>
               </CardFooter>
             </Card>
+
+          {/* Self Courses in Udemy */}
+          <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
+              <CardContent className="pt-6 p-4">
+                <CardTitle>My courses in udemy</CardTitle>
+                <CardDescription className="mt-2 text-muted-foreground">
+                  I have uploaded my self courses in Udemy, in concept of  "More Practical and Less theory". You can visit the page to view my courses. I uploaded my courses around 2024. 
+                </CardDescription>
+              </CardContent>
+              <CardFooter className="p-4">
+                <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  <a href="https://www.udemy.com/user/anupriya-balasubramanian/" target="_blank" rel="noopener noreferrer">View Achievement</a>
+                </Button>
+              </CardFooter>
+            </Card>            
           </div>
         </div>
 
