@@ -5,7 +5,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button'; // Assuming Button is JS compatible
 import { Menu } from 'lucide-react'; // Import Menu icon for mobile
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet'; // Import Sheet components
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle, SheetDescription } from '@/components/ui/sheet'; // Import Sheet components
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden'; // Assuming VisuallyHidden is available here
 
 const Header = () => {
   const scrollToSection = (id) => (event) => {
@@ -84,6 +85,10 @@ const Header = () => {
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="bg-sidebar text-sidebar-foreground p-6 w-64"> {/* Adjusted side and styling */}
+               {/* Accessibility: Add a visually hidden title and description for the sheet */}
+               <VisuallyHidden>
+                 <SheetTitle>Mobile Menu</SheetTitle>
+               </VisuallyHidden>
               <div className="flex flex-col space-y-4 mt-4">
                   <SheetClose asChild>
                       <Button
@@ -141,6 +146,9 @@ const Header = () => {
                        </Button>
                    </SheetClose>
               </div>
+               <VisuallyHidden>
+                 <SheetDescription>Navigation menu for the website</SheetDescription>
+               </VisuallyHidden>
             </SheetContent>
           </Sheet>
         </div>

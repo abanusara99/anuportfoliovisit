@@ -27,8 +27,10 @@ const SmokeCursorEffect = () => {
   const idleParticleIntervalRef = useRef(null);
   const [isCursorInBody, setIsCursorInBody] = useState(true); // Assume cursor starts in body or will enter
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
   const addParticle = useCallback((x, y) => {
-    const size = 30; // Smoke width set to 20px as per user request
+    const size = isMobile ? 20 : 30; // Smoke width set to 20px for mobile, 30px for desktop
     const newParticle = {
       id: particleIdCounter.current++,
       x,
@@ -62,7 +64,6 @@ const SmokeCursorEffect = () => {
       if (!idleParticleIntervalRef.current && lastMousePosition.current) {
         addParticle(lastMousePosition.current.x, lastMousePosition.current.y);
         addParticle(lastMousePosition.current.x, lastMousePosition.current.y);
-        
         idleParticleIntervalRef.current = setInterval(() => {
           if (!isCursorInBody) { // Stop interval if cursor leaves
               if(idleParticleIntervalRef.current) clearInterval(idleParticleIntervalRef.current);
@@ -84,57 +85,103 @@ const SmokeCursorEffect = () => {
         return;
     }
 
-    const handleMouseMove = (event) => {
-      if (!isCursorInBody) return; // Only process if cursor is in body
-
-      const { clientX, clientY } = event;
-      addParticle(clientX, clientY);
-      addParticle(clientX, clientY);
-
-      lastMousePosition.current = { x: clientX, y: clientY };
-      startOrResetIdleTimers();
-    };
-
-    const handleMouseLeaveBody = () => {
-      setIsCursorInBody(false);
+    const clearTimersAndParticles = () => {
       setParticles([]); // Clear particles immediately
       // Clear timers
       if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current);
       if (idleParticleIntervalRef.current) {
         clearInterval(idleParticleIntervalRef.current);
         idleParticleIntervalRef.current = null;
+      };
+    }
+
+    const handleMouseMove = (event) => {
+ if (!isCursorInBody) return; // Only process if cursor is in body
+
+      const { clientX, clientY } = event;
+      const distance = Math.sqrt(
+        Math.pow(clientX - lastMousePosition.current.x, 2) +
+        Math.pow(clientY - lastMousePosition.current.y, 2)
+ );
+
+      if (distance > 5) { // Add particle if moved more than 5 pixels
+ addParticle(clientX, clientY);
+ lastMousePosition.current = { x: clientX, y: clientY };
       }
+
+ startOrResetIdleTimers(); // Reset idle timer on any mouse movement
+    };
+
+    const handleTouchMove = (event) => {
+      // Removed preventDefault to allow scrolling
+      // event.preventDefault();
+ if (!isCursorInBody) return; // Only process if touch is considered "in body"
+
+      // Prevent default only if you are *sure* you want to stop scrolling in a specific area
+      // if (event.target.classList.contains('smoke-effect-area')) event.preventDefault();
+      const touch = event.touches[0];
+      const { clientX, clientY } = touch;
+    };
+
+    const handleTouchStart = (event) => {
+      event.preventDefault();
+      setIsCursorInBody(true); // Assume touch starts "in body" for effect
+      const touch = event.touches[0];
+      const { clientX, clientY } = touch;
+      lastMousePosition.current = { x: clientX, y: clientY };
+      addParticle(clientX, clientY); // Add particle on touch start
+      startOrResetIdleTimers(); // Could potentially be used for a "long press" idle effect
+    };
+
+    const handleTouchEnd = () => {
+      setIsCursorInBody(false); // Consider touch ended as cursor "leaving"
+      clearTimersAndParticles();
+    };
+
+    const handleMouseLeaveBody = () => {
+      setIsCursorInBody(false);
+      clearTimersAndParticles();
     };
 
     const handleMouseEnterBody = (event) => {
       setIsCursorInBody(true);
       lastMousePosition.current = { x: event.clientX, y: event.clientY };
       // When mouse enters, treat it as a "stop" to potentially start idle generation
-      // if it remains still.
+      // if it remains still. This also clears particles left from mouseleave.
       startOrResetIdleTimers();
     };
-    
-    // Attach event listeners
-    window.addEventListener('mousemove', handleMouseMove);
-    document.body.addEventListener('mouseleave', handleMouseLeaveBody);
-    document.body.addEventListener('mouseenter', handleMouseEnterBody);
-    
-    // Initial check: if mouse is outside when component mounts (e.g. focus on devtools)
-    // This is tricky; mouseenter/mouseleave are generally reliable for user interaction.
-    // For simplicity, we rely on the initial state and events.
-    // If `document.elementFromPoint` was used, it needs clientX/clientY which we don't have on mount
-    // without a prior event.
+
+    if (isMobile) {
+      // Attach touch event listeners
+      document.body.addEventListener('touchmove', handleTouchMove, { passive: true });
+      document.body.addEventListener('touchstart', handleTouchStart, { passive: true });
+      document.body.addEventListener('touchend', handleTouchEnd);
+       // On mobile, we might not need mouse events, but leaving them might not hurt.
+       // For a clean mobile-only experience, one might consider removing mouse listeners here.
+    } else {
+       // Attach mouse event listeners for non-mobile
+      window.addEventListener('mousemove', handleMouseMove);
+      document.body.addEventListener('mouseleave', handleMouseLeaveBody);
+      document.body.addEventListener('mouseenter', handleMouseEnterBody);
+    }
+
 
     return () => {
       // Cleanup listeners
-      window.removeEventListener('mousemove', handleMouseMove);
-      if (document.body) { // Ensure body exists during cleanup
-        document.body.removeEventListener('mouseleave', handleMouseLeaveBody);
-        document.body.removeEventListener('mouseenter', handleMouseEnterBody);
+      if (isMobile) {
+        if (document.body) { // Ensure document.body exists before removing listeners
+          document.body.removeEventListener('touchmove', handleTouchMove);
+          document.body.removeEventListener('touchstart', handleTouchStart); // Corrected: Was missing passive: true
+          document.body.removeEventListener('touchend', handleTouchEnd); // Corrected: Was missing passive: true
+        }
+      } else {
+        window.removeEventListener('mousemove', handleMouseMove);
+        if (document.body) {
+          document.body.removeEventListener('mouseleave', handleMouseLeaveBody);
+          document.body.removeEventListener('mouseenter', handleMouseEnterBody);
+        }
       }
-      // Clear timers on unmount
-      if (inactivityTimerRef.current) clearTimeout(inactivityTimerRef.current);
-      if (idleParticleIntervalRef.current) clearInterval(idleParticleIntervalRef.current);
+      clearTimersAndParticles(); // Ensure timers and particles are cleared on unmount
     };
   }, [addParticle, isCursorInBody, startOrResetIdleTimers]); // Dependencies for the main effect
 

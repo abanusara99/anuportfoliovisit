@@ -112,10 +112,9 @@ export default function Home() {
       <div id="about" className="text-center mb-12">
         {/* Flipping Card for Profile Image/Video */}
         <div
-          className="flip-card-container w-48 h-48 mx-auto mb-6"
-          onMouseEnter={() => setIsCardFlipped(true)}
-          onMouseLeave={() => setIsCardFlipped(false)}
-        >
+          className="flip-card-container w-48 h-48 mx-auto mb-6"onMouseEnter={() => setIsCardFlipped(true)}onMouseLeave={() => setIsCardFlipped(false)}
+ onTouchEnd={() => { console.log('onTouchEnd', isCardFlipped, !isCardFlipped); setIsCardFlipped(!isCardFlipped); }}
+>
           <div className={`flip-card ${isCardFlipped ? 'flipped' : ''}`}>
             <div className="flip-card-front">
               <Image
@@ -123,6 +122,7 @@ export default function Home() {
                 alt="Anupriya Balasubramanian"
                 width={192}
                 height={192}
+ style={{ height: 'auto', width: '100%' }}
                 className="object-cover w-full h-full profile-image"
                 data-ai-hint="profile woman"
                 priority
@@ -134,6 +134,7 @@ export default function Home() {
                 alt="Anupriya Balasubramanian - Back"
                 width={192}
                 height={192}
+ style={{ height: 'auto', width: '100%' }}
                 className="object-cover w-full h-full profile-image"
                 data-ai-hint="profile woman alternate"
               />

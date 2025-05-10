@@ -199,8 +199,22 @@
   height: 100%;
   object-fit: cover;
   border: 2px solid hsl(var(--card-border)); /* Apply card border to front and back */
-}
+}.flip-card-back {
+ border-radius: 9999px;
+ overflow: hidden;
+ border: 2px solid hsl(var(--card-border)); /* Explicitly apply circular border to back container */
+ transform: rotateY(180deg);
 
+    height: 100%;
+ .flip-card.flipped .flip-card-back,
+  .flip-card.flipped .flip-card-back .profile-image {
+ border-radius: 9999px;
+ overflow: hidden;
+    width: 100%;
+ height: 100%;
+ object-fit: cover;
+  }
+}
 
 /* Typing effect - if specific styling is needed */
 .typing-effect {
