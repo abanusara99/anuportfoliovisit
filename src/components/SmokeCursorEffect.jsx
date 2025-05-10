@@ -30,7 +30,7 @@ const SmokeCursorEffect = () => {
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   const addParticle = useCallback((x, y) => {
-    const size = isMobile ? 40 : 40; // Smoke width set to 20px for mobile, 30px for desktop
+    const size = isMobile ? 40 : 40; // Smoke width set to 40px for mobile, 40px for desktop
     const newParticle = {
       id: particleIdCounter.current++,
       x,
@@ -113,7 +113,7 @@ const SmokeCursorEffect = () => {
     };
 
     const handleTouchMove = (event) => {
-      // Removed preventDefault to allow scrolling
+ // Removed preventDefault to allow scrolling
       // event.preventDefault();
  if (!isCursorInBody) return; // Only process if touch is considered "in body"
 
@@ -121,17 +121,33 @@ const SmokeCursorEffect = () => {
       // if (event.target.classList.contains('smoke-effect-area')) event.preventDefault();
       const touch = event.touches[0];
       const { clientX, clientY } = touch;
+ // Calculate distance from last position
+ const distance = Math.sqrt(
+ Math.pow(clientX - lastMousePosition.current.x, 2) +
+ Math.pow(clientY - lastMousePosition.current.y, 2)
+ );
+
+ if (distance > 5) { // Add particle if moved more than 5 pixels
+ addParticle(clientX, clientY);
+ lastMousePosition.current = { x: clientX, y: clientY };
+ }
     };
 
     const handleTouchStart = (event) => {
-      event.preventDefault();
       setIsCursorInBody(true); // Assume touch starts "in body" for effect
       const touch = event.touches[0];
       const { clientX, clientY } = touch;
       lastMousePosition.current = { x: clientX, y: clientY };
-      addParticle(clientX, clientY); // Add particle on touch start
       startOrResetIdleTimers(); // Could potentially be used for a "long press" idle effect
     };
+
+ // Handle touch cancel (e.g., incoming call, switching apps)
+ const handleTouchCancel = () => {
+ setIsCursorInBody(false);
+ clearTimersAndParticles();
+ };
+
+
 
     const handleTouchEnd = () => {
       setIsCursorInBody(false); // Consider touch ended as cursor "leaving"
@@ -154,8 +170,9 @@ const SmokeCursorEffect = () => {
     if (isMobile) {
       // Attach touch event listeners
       document.body.addEventListener('touchmove', handleTouchMove, { passive: true });
-      document.body.addEventListener('touchstart', handleTouchStart, { passive: true });
+ document.body.addEventListener('touchstart', handleTouchStart, { passive: true }); // passive: true to allow scrolling/gestures
       document.body.addEventListener('touchend', handleTouchEnd);
+ document.body.addEventListener('touchcancel', handleTouchCancel); // Add touchcancel listener
        // On mobile, we might not need mouse events, but leaving them might not hurt.
        // For a clean mobile-only experience, one might consider removing mouse listeners here.
     } else {
@@ -171,8 +188,9 @@ const SmokeCursorEffect = () => {
       if (isMobile) {
         if (document.body) { // Ensure document.body exists before removing listeners
           document.body.removeEventListener('touchmove', handleTouchMove);
-          document.body.removeEventListener('touchstart', handleTouchStart); // Corrected: Was missing passive: true
-          document.body.removeEventListener('touchend', handleTouchEnd); // Corrected: Was missing passive: true
+ document.body.removeEventListener('touchstart', handleTouchStart);
+ document.body.removeEventListener('touchend', handleTouchEnd);
+ document.body.removeEventListener('touchcancel', handleTouchCancel); // Remove touchcancel listener
         }
       } else {
         window.removeEventListener('mousemove', handleMouseMove);
@@ -181,7 +199,7 @@ const SmokeCursorEffect = () => {
           document.body.removeEventListener('mouseenter', handleMouseEnterBody);
         }
       }
-      clearTimersAndParticles(); // Ensure timers and particles are cleared on unmount
+ clearTimersAndParticles(); // Ensure timers and particles are cleared on unmount
     };
   }, [addParticle, isCursorInBody, startOrResetIdleTimers]); // Dependencies for the main effect
 
