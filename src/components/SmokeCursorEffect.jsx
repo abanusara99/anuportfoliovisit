@@ -30,7 +30,7 @@ const SmokeCursorEffect = () => {
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   const addParticle = useCallback((x, y) => {
-    const size = isMobile ? 20 : 30; // Smoke width set to 20px for mobile, 30px for desktop
+    const size = isMobile ? 40 : 40; // Smoke width set to 20px for mobile, 30px for desktop
     const newParticle = {
       id: particleIdCounter.current++,
       x,
