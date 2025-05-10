@@ -1,0 +1,25 @@
+/* Provided CSS rule */
+.your-css-rule {
+  width: 100px; /* Example: width is set */
+  /* other styles */
+}
+
+/* Modified CSS rule */
+.your-css-rule {
+  width: 100px;
+  height: auto; /* Added height: auto; */
+  /* other styles */
+}
+
+/* Or if height was set */
+.your-css-rule {
+  height: 100px; /* Example: height is set */
+  /* other styles */
+}
+
+/* Modified CSS rule */
+.your-css-rule {
+  height: 100px;
+  width: auto; /* Added width: auto; */
+  /* other styles */
+}
