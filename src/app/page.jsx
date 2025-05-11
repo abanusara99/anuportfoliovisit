@@ -177,7 +177,7 @@ export default function Home() {
             <a href="https://www.instagram.com/abanusarareal/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile" className="transition-transform transform hover:scale-110 hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out p-2 rounded-lg">
                <Image src="/img/instagram.png" alt="Instagram" width={32} height={32} />
             </a>
-            <a href="https://www.quora.com/profile/ABAnu-Sara" target="_blank" rel="noopener noreferrer" aria-label="Quora Profile" className="transition-transform transform hover:scale-110 hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out p-2 rounded-lg">
+            <a href="https://www.quora.com/profile/Anupriya-B-16" target="_blank" rel="noopener noreferrer" aria-label="Quora Profile" className="transition-transform transform hover:scale-110 hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out p-2 rounded-lg">
                <Image src="/img/qov.png" alt="Instagram" width={32} height={32} />
             </a>
           </div>
