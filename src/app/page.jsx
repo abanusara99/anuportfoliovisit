@@ -307,6 +307,22 @@ export default function Home() {
                 </Button>
               </CardFooter>
             </Card>            
+
+             {/* AI for India 2.0*/}
+          <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
+              <CardContent className="pt-6 p-4">
+                <CardTitle>AI for India 2.0</CardTitle>
+                <CardDescription className="mt-2 text-muted-foreground">
+                  I attended a workshop conducted by GUVI, "AI for India 2.0" with python course. I achieved cerficates for both python and AI for India 2.0 in August 15,2023. 
+                </CardDescription>
+              </CardContent>
+              <CardFooter className="p-4">
+                <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  <a href="https://github.com/abanusara99/guvi2.0AI/blob/main/GuviCertification%20-%209S770rD216q2un8hP9.png" target="_blank" rel="noopener noreferrer">View Achievement</a>
+                </Button>
+              </CardFooter>
+            </Card>            
+
           </div>
         </div>
 
