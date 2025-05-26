@@ -155,6 +155,7 @@ export default function Home() {
                 I have a strong passion for researching, learning, exploring, and documenting details.
                 Most of my work revolves around writing and continuously acquiring new skills in writing and development. I obsessed with books and learning latest technologies.
             </p>
+            <br />
             <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                   <a href="https://persona-canvas.vercel.app/" target="_blank" rel="noopener noreferrer">Personal Canvas</a>
                 </Button>
