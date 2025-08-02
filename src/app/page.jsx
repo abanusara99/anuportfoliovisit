@@ -335,70 +335,8 @@ export default function Home() {
         <div id="portfolio" className="pt-16 text-center w-full max-w-6xl mx-auto mb-16">
           <h2 className="text-2xl font-bold mb-12">Portfolio</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-             {/* Card 1: Medium Article */}
-             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
-              <CardHeader className="p-0">
-                <video controls className="w-full h-48 object-cover" data-ai-hint="writing article">
-                  <source src="/vid/mediumv.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </CardHeader>
-              <CardContent className="pt-6 p-4">
-                <CardTitle>My Medium Articles</CardTitle>
-                <CardDescription className="mt-2 text-muted-foreground">
-                  Discover my thoughts and insights on technology, design, and content creation.
-                </CardDescription>
-              </CardContent>
-              <CardFooter className="p-4">
-                <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                  <a href="https://medium.com/@abanusara9" target="_blank" rel="noopener noreferrer">Read on Medium</a>
-                </Button>
-              </CardFooter>
-            </Card>
-
-            {/* Card 2: Codepen Article */}
-            <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
-              <CardHeader className="p-0">
-                <video controls className="w-full h-48 object-cover" data-ai-hint="writing article">
-                  <source src="/vid/codev.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </CardHeader>
-              <CardContent className="pt-6 p-4">
-                <CardTitle>Codepen</CardTitle>
-                <CardDescription className="mt-2 text-muted-foreground">
-                 Live deployed projects (html, css, javascript and API) on Codepen.
-                </CardDescription>
-              </CardContent>
-              <CardFooter className="p-4">
-                <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                  <a href="https://codepen.io/ABAnu-Sara/pens/public?cursor=ZD0xJm89MCZwPTEmdj03Mjk2NzgwMw==" target="_blank" rel="noopener noreferrer">Visit Codepen</a>
-                </Button>
-              </CardFooter>
-            </Card>
-
-            {/* Card 3: GitHub Projects */}
-            <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
-              <CardHeader className="p-0">
-                 <video controls className="w-full h-48 object-cover" data-ai-hint="code computer">
-                  <source src="vid/githubv.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </CardHeader>
-              <CardContent className="pt-6 p-4">
-                <CardTitle>GitHub Profile</CardTitle>
-                <CardDescription className="mt-2 text-muted-foreground">
-                  Explore my open-source projects and coding contributions on GitHub.
-                </CardDescription>
-              </CardContent>
-              <CardFooter className="p-4">
-                <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                  <a href="https://github.com/abanusara99" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-                </Button>
-              </CardFooter>
-            </Card>
-
-            {/* Card 4: Password generator */}
+             
+            {/* Card 2: Password generator */}
             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
               <CardHeader className="p-0">
                 <video controls className="w-full h-48 object-cover" data-ai-hint="video editing software">
@@ -419,7 +357,7 @@ export default function Home() {
               </CardFooter>
             </Card>
 
-            {/* Card 5: Mood tracker */}
+            {/* Card 2: Mood tracker */}
             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
               <CardHeader className="p-0">
                  <video controls className="w-full h-48 object-cover" data-ai-hint="web application interface">
@@ -440,7 +378,7 @@ export default function Home() {
               </CardFooter>
             </Card>
 
-            {/* Card 6: Lifecraft Studio - web design */}
+            {/* Card 3: Lifecraft Studio - web design */}
             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
             <CardHeader className="p-0">
             <img 
@@ -465,6 +403,71 @@ export default function Home() {
             </CardFooter>
             </Card>
 
+            
+            {/* Card 4: Medium Article */}
+             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
+              <CardHeader className="p-0">
+                <video controls className="w-full h-48 object-cover" data-ai-hint="writing article">
+                  <source src="/vid/mediumv.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </CardHeader>
+              <CardContent className="pt-6 p-4">
+                <CardTitle>My Medium Articles</CardTitle>
+                <CardDescription className="mt-2 text-muted-foreground">
+                  Discover my thoughts and insights on technology, design, and content creation.
+                </CardDescription>
+              </CardContent>
+              <CardFooter className="p-4">
+                <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  <a href="https://medium.com/@abanusara9" target="_blank" rel="noopener noreferrer">Read on Medium</a>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            {/* Card 5: Codepen Article */}
+            <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
+              <CardHeader className="p-0">
+                <video controls className="w-full h-48 object-cover" data-ai-hint="writing article">
+                  <source src="/vid/codev.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </CardHeader>
+              <CardContent className="pt-6 p-4">
+                <CardTitle>Codepen</CardTitle>
+                <CardDescription className="mt-2 text-muted-foreground">
+                 Live deployed projects (html, css, javascript and API) on Codepen.
+                </CardDescription>
+              </CardContent>
+              <CardFooter className="p-4">
+                <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  <a href="https://codepen.io/ABAnu-Sara/pens/public?cursor=ZD0xJm89MCZwPTEmdj03Mjk2NzgwMw==" target="_blank" rel="noopener noreferrer">Visit Codepen</a>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            {/* Card 6: GitHub Projects */}
+            <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
+              <CardHeader className="p-0">
+                 <video controls className="w-full h-48 object-cover" data-ai-hint="code computer">
+                  <source src="vid/githubv.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </CardHeader>
+              <CardContent className="pt-6 p-4">
+                <CardTitle>GitHub Profile</CardTitle>
+                <CardDescription className="mt-2 text-muted-foreground">
+                  Explore my open-source projects and coding contributions on GitHub.
+                </CardDescription>
+              </CardContent>
+              <CardFooter className="p-4">
+                <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  <a href="https://github.com/abanusara99" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            
             {/* Card 7: Behance Design Portfolio */}
             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
               <CardHeader className="p-0">
@@ -486,7 +489,7 @@ export default function Home() {
               </CardFooter>
             </Card>
 
-            {/* Card 7: YouTube */}
+            {/* Card 8: YouTube */}
             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
               <CardHeader className="p-0">
                  <video controls className="w-full h-48 object-cover" data-ai-hint="canva design interface">
@@ -508,7 +511,7 @@ export default function Home() {
               </CardFooter>
             </Card>
 
-            {/* Card 8: Wix */}
+            {/* Card 9: Wix */}
             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
               <CardHeader className="p-0">
                  <video controls className="w-full h-48 object-cover" data-ai-hint="canva design interface">
