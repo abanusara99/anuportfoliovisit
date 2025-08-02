@@ -331,10 +331,32 @@ export default function Home() {
         </div>
 
 
-        {/* Portfolio Section */}
+        {/* Projects & Portfolio Section */}
         <div id="portfolio" className="pt-16 text-center w-full max-w-6xl mx-auto mb-16">
-          <h2 className="text-2xl font-bold mb-12">Portfolio</h2>
+          <h2 className="text-2xl font-bold mb-12">Projects & Portfolio</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            {/* Card 1: NewsAPI - NewMars */}
+            <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
+              <CardHeader className="p-0">
+                <video controls className="w-full h-48 object-cover" data-ai-hint="video editing software">
+                  <source src="/vid/newsapi.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </CardHeader>
+              <CardContent className="pt-6 p-4">
+                <CardTitle>NewsAPI - NewMars</CardTitle>
+                <CardDescription className="mt-2 text-muted-foreground">
+                  This page give results about random latest news post cards. I used reactjs vite and typescript. I deployed in vercel.
+                </CardDescription>
+              </CardContent>
+              <CardFooter className="p-4">
+              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  <a href="https://newapiorg.vercel.app/" target="_blank" rel="noopener noreferrer">View project</a>
+                </Button>
+              </CardFooter>
+            </Card>
+
              
             {/* Card 2: Password generator */}
             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
