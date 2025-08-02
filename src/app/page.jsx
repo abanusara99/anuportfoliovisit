@@ -448,10 +448,10 @@ export default function Home() {
                 </Button>
               </CardFooter>
             </Card>
-              
-            <div style={{ fontSize: '16px', color: 'white', textAlign: 'center' }}>
+
+            <br />            <div style={{ fontSize: '16px', color: 'white', textAlign: 'center' }}>
                   Portfolio </div> 
-            
+            <br />
             {/* Card 5: Codepen Article */}
             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
               <CardHeader className="p-0">
