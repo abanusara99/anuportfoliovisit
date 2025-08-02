@@ -63,7 +63,7 @@ const Header = () => {
             aria-label="Scroll to Portfolio section"
             asChild
           >
-            <a href="#portfolio">Portfolio</a>
+            <a href="#portfolio">Projects & Portfolio</a>
           </Button>
           <Button
             variant="link"
