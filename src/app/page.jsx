@@ -334,8 +334,6 @@ export default function Home() {
         {/* Projects & Portfolio Section */}
         <div id="portfolio" className="pt-16 text-center w-full max-w-6xl mx-auto mb-16">
           <h2 className="text-2xl font-bold mb-12">Projects & Portfolio</h2>
-           <div style={{ fontSize: '16px', color: 'white', textAlign: 'center' }}>
-                  Project </div> 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             
             {/* Card 1: NewsAPI - NewMars */}
@@ -448,10 +446,7 @@ export default function Home() {
                 </Button>
               </CardFooter>
             </Card>
-
-            <br />            <div style={{ fontSize: '16px', color: 'white', textAlign: 'center' }}>
-                  Portfolio </div> 
-            <br />
+            
             {/* Card 5: Codepen Article */}
             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
               <CardHeader className="p-0">
