@@ -453,7 +453,7 @@ export default function Home() {
             <CardContent className="pt-6 p-4">
             <CardTitle>Lifecraft Studio - web design</CardTitle>
             <CardDescription className="mt-2 text-muted-foreground">
-             This project created based on contest given by Lifecraft studio. Deployed using Codepen.io.
+             This project created based on contest given by Lifecraft studio with simple HTML, CSS and javascript. Deployed using Codepen.io.
             </CardDescription>
             </CardContent>
            <CardFooter className="p-4">
