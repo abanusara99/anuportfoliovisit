@@ -440,7 +440,32 @@ export default function Home() {
               </CardFooter>
             </Card>
 
-            {/* Card 6: Behance Design Portfolio */}
+            {/* Card 6: Lifecraft Studio - web design */}
+            <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
+            <CardHeader className="p-0">
+            <img 
+            src="/img/life_studio_crlwebdesign.png" 
+            alt="Lifecraft Studio - Web design" 
+            className="w-full h-48 object-cover" 
+            data-ai-hint=" web application interface preview"
+            />
+            </CardHeader>
+            <CardContent className="pt-6 p-4">
+            <CardTitle>Lifecraft Studio - web design</CardTitle>
+            <CardDescription className="mt-2 text-muted-foreground">
+             This project created based on contest given by Lifecraft studio. Deployed using Codepen.io.
+            </CardDescription>
+            </CardContent>
+           <CardFooter className="p-4">
+           <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+           <a href="https://codepen.io/ABAnu-Sara/pen/GgKbpRa" target="_blank" rel="noopener noreferrer">
+            Visit Project
+            </a>
+            </Button>
+            </CardFooter>
+            </Card>
+
+            {/* Card 7: Behance Design Portfolio */}
             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
               <CardHeader className="p-0">
                  <video controls className="w-full h-48 object-cover" data-ai-hint="graphic design portfolio">
