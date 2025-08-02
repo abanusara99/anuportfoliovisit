@@ -336,6 +336,9 @@ export default function Home() {
           <h2 className="text-2xl font-bold mb-12">Projects & Portfolio</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
+             <div style={{ fontSize: '16px', color: 'white', textAlign: 'center' }}>
+                  Project </div> 
+            
             {/* Card 1: NewsAPI - NewMars */}
             <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
               <CardHeader className="p-0">
