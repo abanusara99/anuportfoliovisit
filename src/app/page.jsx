@@ -153,7 +153,7 @@ export default function Home() {
             </p>
             <p>
                 I have a strong passion for researching, learning, exploring, and documenting details.
-                Most of my work revolves around writing and continuously acquiring new skills in writing and development. I dedicated with books and learning new technologies.
+                Most of my work revolves around writing and continuously acquiring new skills in writing and development. I dedicated with books and learning new technology.
             </p>
             <br />
             <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
