@@ -541,7 +541,7 @@ export default function Home() {
       </div>
 
 {/* ============================================
-   CONTACT SECTION - GLOWING ICONS
+   CONTACT SECTION - FIRE THEME GLOW
    ============================================ */}
 <div id="contact" className="pt-16 text-center w-full max-w-4xl mx-auto mb-16">
   <h2 className="text-2xl font-bold mb-4">Contact Me</h2>
@@ -549,25 +549,25 @@ export default function Home() {
     Click an icon to reveal contact details
   </p>
   
-  {/* Responsive Columns: Top-aligned on desktop, centered on mobile */}
+  {/* Responsive Columns */}
   <div className="flex flex-col md:flex-row md:space-x-16 items-center justify-center md:items-start gap-8">
     
-    {/* COLUMN 1: EMAIL */}
+    {/* COLUMN 1: EMAIL - FIRE THEME */}
     <div className="flex flex-col items-center">
       <button
         onClick={() => handleContactClick('email')}
         aria-label="Toggle email display"
         className={`group relative transition-all duration-500 ease-in-out inline-block p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-4 ${
           activeContact === 'email' 
-            ? 'scale-110 opacity-100 border-amber-500 shadow-[0_0_25px_rgba(245,158,11,0.6)]' 
-            : 'scale-100 opacity-100 border-gray-300 shadow-[0_0_15px_rgba(156,163,175,0.3)] hover:shadow-[0_0_20px_rgba(156,163,175,0.5)] hover:scale-105'
+            ? 'scale-110 opacity-100 border-orange-500 shadow-[0_0_25px_rgba(249,115,22,0.7)]' 
+            : 'scale-100 opacity-100 border-orange-300 shadow-[0_0_15px_rgba(251,146,60,0.3)] hover:shadow-[0_0_20px_rgba(249,115,22,0.5)] hover:scale-105'
         }`}
       >
-        {/* Glow Ring Animation */}
+        {/* Fire Glow Ring Animation */}
         <div className={`absolute inset-0 rounded-full border-2 transition-all duration-500 ${
           activeContact === 'email' 
-            ? 'border-amber-400 opacity-100 animate-pulse' 
-            : 'border-gray-400 opacity-50 group-hover:opacity-70'
+            ? 'border-orange-400 opacity-100 animate-pulse-fire' 
+            : 'border-orange-300 opacity-40 group-hover:opacity-60'
         }`} />
         
         <Image
@@ -585,26 +585,26 @@ export default function Home() {
       
       {activeContact === 'email' && (
         <div className="mt-6 space-y-3 w-full max-w-xs animate-fade-in">
-          <div className="p-3 bg-card text-card-foreground rounded-lg shadow-lg flex items-center justify-between ring-1 ring-border hover:ring-2 hover:ring-amber-400 transition-all duration-300">
+          <div className="p-3 bg-card text-card-foreground rounded-lg shadow-lg flex items-center justify-between ring-1 ring-border hover:ring-2 hover:ring-orange-400 transition-all duration-300">
             <span className="text-sm sm:text-base break-all mr-2 font-medium">abanubala77@gmail.com</span>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => handleCopyEmail('abanubala77@gmail.com')}
               aria-label="Copy email"
-              className="text-foreground hover:text-primary hover:scale-110 transition-transform duration-200"
+              className="text-foreground hover:text-orange-500 hover:scale-110 transition-transform duration-200"
             >
               <Copy className="h-5 w-5" />
             </Button>
           </div>
-          <div className="p-3 bg-card text-card-foreground rounded-lg shadow-lg flex items-center justify-between ring-1 ring-border hover:ring-2 hover:ring-amber-400 transition-all duration-300">
+          <div className="p-3 bg-card text-card-foreground rounded-lg shadow-lg flex items-center justify-between ring-1 ring-border hover:ring-2 hover:ring-orange-400 transition-all duration-300">
             <span className="text-sm sm:text-base break-all mr-2 font-medium">anupriyabalasubramanian003@gmail.com</span>
             <Button
               variant="ghost"
               size="icon"
               onClick={() => handleCopyEmail('anupriyabalasubramanian003@gmail.com')}
               aria-label="Copy email"
-              className="text-foreground hover:text-primary hover:scale-110 transition-transform duration-200"
+              className="text-foreground hover:text-orange-500 hover:scale-110 transition-transform duration-200"
             >
               <Copy className="h-5 w-5" />
             </Button>
@@ -613,22 +613,22 @@ export default function Home() {
       )}
     </div>
     
-    {/* COLUMN 2: PHONE */}
+    {/* COLUMN 2: PHONE - FIRE THEME */}
     <div className="flex flex-col items-center">
       <button
         onClick={() => handleContactClick('phone')}
         aria-label="Toggle phone display"
         className={`group relative transition-all duration-500 ease-in-out inline-block p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-4 ${
           activeContact === 'phone' 
-            ? 'scale-110 opacity-100 border-amber-500 shadow-[0_0_25px_rgba(245,158,11,0.6)]' 
-            : 'scale-100 opacity-100 border-gray-300 shadow-[0_0_15px_rgba(156,163,175,0.3)] hover:shadow-[0_0_20px_rgba(156,163,175,0.5)] hover:scale-105'
+            ? 'scale-110 opacity-100 border-orange-500 shadow-[0_0_25px_rgba(249,115,22,0.7)]' 
+            : 'scale-100 opacity-100 border-orange-300 shadow-[0_0_15px_rgba(251,146,60,0.3)] hover:shadow-[0_0_20px_rgba(249,115,22,0.5)] hover:scale-105'
         }`}
       >
-        {/* Glow Ring Animation */}
+        {/* Fire Glow Ring Animation */}
         <div className={`absolute inset-0 rounded-full border-2 transition-all duration-500 ${
           activeContact === 'phone' 
-            ? 'border-amber-400 opacity-100 animate-pulse' 
-            : 'border-gray-400 opacity-50 group-hover:opacity-70'
+            ? 'border-orange-400 opacity-100 animate-pulse-fire' 
+            : 'border-orange-300 opacity-40 group-hover:opacity-60'
         }`} />
         
         <Image
@@ -646,7 +646,7 @@ export default function Home() {
       
       {activeContact === 'phone' && (
         <div className="mt-6 space-y-3 w-full max-w-xs animate-fade-in">
-          <div className="p-3 bg-card text-card-foreground rounded-lg shadow-lg flex items-center justify-between ring-1 ring-border hover:ring-2 hover:ring-amber-400 transition-all duration-300">
+          <div className="p-3 bg-card text-card-foreground rounded-lg shadow-lg flex items-center justify-between ring-1 ring-border hover:ring-2 hover:ring-orange-400 transition-all duration-300">
             <span className="text-sm sm:text-base break-all mr-2 font-medium">+91 6281209403</span>
             <Button
               variant="ghost"
@@ -659,7 +659,7 @@ export default function Home() {
                 });
               }}
               aria-label="Copy phone number"
-              className="text-foreground hover:text-primary hover:scale-110 transition-transform duration-200"
+              className="text-foreground hover:text-orange-500 hover:scale-110 transition-transform duration-200"
             >
               <Copy className="h-5 w-5" />
             </Button>
