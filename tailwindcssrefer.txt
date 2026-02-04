@@ -1,0 +1,386 @@
+# 🔥 Tailwind CSS Classes Reference
+
+## 🎨 Fire Theme Colors
+| Class | Hex | Usage |
+|-------|-----|-------|
+| `border-orange-300` | `#fdba74` | Dull orange border for unselected contact icons |
+| `border-orange-400` | `#fb923c` | Medium fire glow ring (hover/unselected state) |
+| `border-orange-500` | `#f97316` | **Primary fire color** - selected contact icons |
+| `border-orange-600` | `#ea580c` | Deep orange-red for intense glow effects |
+| `text-orange-500` | `#f97316` | Hover text color for copy buttons |
+| `hover:ring-orange-400` | `#fb923c` | Ring glow on contact detail boxes |
+
+## ✨ Custom Glow Effects (Arbitrary Values)
+| Class | Effect |
+|-------|--------|
+| `shadow-[0_0_15px_rgba(251,146,60,0.3)]` | Soft orange glow (unselected icons) |
+| `shadow-[0_0_20px_rgba(249,115,22,0.5)]` | Enhanced fire glow on hover |
+| `shadow-[0_0_25px_rgba(249,115,22,0.7)]` | **Intense fire pulse** (selected state) |
+
+## 🔄 Custom Animations (globals.css)
+| Class | Description |
+|-------|-------------|
+| `animate-pulse-fire` | Fire-themed pulsing glow animation (orange→red intensity shifts) |
+| `animate-fade-in` | Smooth fade + slide-up animation for revealed content |
+| `fire-glow` | Base class for fire shadow effects (defined in CSS) |
+
+## 📱 Layout & Structure
+| Class | Purpose |
+|-------|---------|
+| `flex flex-col md:flex-row` | Column on mobile → row on tablet/desktop |
+| `items-center md:items-start` | Centered mobile → top-aligned desktop |
+| `rounded-full overflow-hidden` | Creates perfect circular containers |
+| `group relative` | Enables parent-hover effects on child elements |
+| `absolute inset-0` | Full-container positioning for glow rings |
+| `transition-all duration-500 ease-in-out` | Smooth 500ms fire glow transitions |
+
+## 🌡️ Interactive States
+| Class | Behavior |
+|-------|----------|
+| `group-hover:opacity-70` | Glow ring brightens on icon hover |
+| `hover:scale-105` | Subtle icon growth on hover |
+| `hover:ring-2 hover:ring-orange-400` | Contact boxes pulse with fire ring on hover |
+| `hover:text-orange-500` | Copy buttons glow orange on hover |
+| `activeContact === 'email' ? 'scale-110' : 'scale-100'` | Selected icon pops forward |
+
+## 🖼️ Image Handling
+| Class | Effect |
+|-------|--------|
+| `object-cover w-full h-full` | Maintains aspect ratio while filling container |
+| `brightness-90 saturate-90` | Dulls unselected icons |
+| `brightness-125 saturate-150` | **Enhances selected icons** with fire vibrancy |
+| `rounded-full` | Circular clipping for profile/contact images |
+
+## 📏 Spacing System
+| Class | Value | Usage |
+|-------|-------|-------|
+| `p-3` | 12px | Icon container padding |
+| `mt-6` | 24px | Space above revealed contact details |
+| `gap-8` | 32px | Space between contact columns |
+| `max-w-xs` | 320px | Contact detail box width |
+| `space-y-3` | 12px | Vertical spacing between email entries |
+
+## 🌐 Responsive Breakpoints
+| Prefix | Min Width | Usage |
+|--------|-----------|-------|
+| `md:` | 768px | Tablet+ layout changes (columns, alignment) |
+| `group-hover:` | N/A | Parent hover effects on child elements |
+| `activeContact ===` | JS | Dynamic state-based styling |
+
+## 💡 Pro Tips
+1. **Fire Glow Formula**:  
+   `shadow-[0_0_{size}px_rgba({R},{G},{B},{opacity})]`  
+   → Orange: `249,115,22` | Red-Orange: `234,88,12`
+
+2. **Animation Priority**:  
+   Selected state > Hover state > Base state  
+   (Ensures fire pulse dominates visual hierarchy)
+
+3. **Border Strategy**:  
+   - Outer border: `border-4` (main container)  
+   - Glow ring: `border-2` (absolute positioned ring)  
+   - Prevents visual thickness conflicts
+
+4. **Performance Note**:  
+   Use `transition-all` sparingly - we limit to critical interactive elements only
+
+## 🚫 Deprecated Patterns
+| Avoid | Use Instead | Why |
+|-------|-------------|-----|
+| `border-yellow-400` | `border-orange-500` | Yellow lacks fire intensity |
+| `animate-pulse` (default) | `animate-pulse-fire` | Default pulse is too subtle for fire theme |
+| `opacity-50` on icons | `brightness-90 saturate-90` | Preserves icon detail while dimming |
+
+
+# 🔥 Tailwind CSS Classes Reference
+
+## 🎨 Fire Theme Colors
+| Class | Hex | Usage |
+|-------|-----|-------|
+| `border-orange-300` | `#fdba74` | Dull orange border for unselected contact icons |
+| `border-orange-400` | `#fb923c` | Medium fire glow ring (hover/unselected state) |
+| `border-orange-500` | `#f97316` | **Primary fire color** - selected contact icons |
+| `border-orange-600` | `#ea580c` | Deep orange-red for intense glow effects |
+| `text-orange-500` | `#f97316` | Hover text color for copy buttons |
+| `hover:ring-orange-400` | `#fb923c` | Ring glow on contact detail boxes |
+
+## ✨ Custom Glow Effects (Arbitrary Values)
+| Class | Effect |
+|-------|--------|
+| `shadow-[0_0_15px_rgba(251,146,60,0.3)]` | Soft orange glow (unselected icons) |
+| `shadow-[0_0_20px_rgba(249,115,22,0.5)]` | Enhanced fire glow on hover |
+| `shadow-[0_0_25px_rgba(249,115,22,0.7)]` | **Intense fire pulse** (selected state) |
+
+## 🔄 Custom Animations (globals.css)
+| Class | Description |
+|-------|-------------|
+| `animate-pulse-fire` | Fire-themed pulsing glow animation (orange→red intensity shifts) |
+| `animate-fade-in` | Smooth fade + slide-up animation for revealed content |
+| `fire-glow` | Base class for fire shadow effects (defined in CSS) |
+
+## 📱 Layout & Structure
+| Class | Purpose |
+|-------|---------|
+| `flex flex-col md:flex-row` | Column on mobile → row on tablet/desktop |
+| `items-center md:items-start` | Centered mobile → top-aligned desktop |
+| `rounded-full overflow-hidden` | Creates perfect circular containers |
+| `group relative` | Enables parent-hover effects on child elements |
+| `absolute inset-0` | Full-container positioning for glow rings |
+| `transition-all duration-500 ease-in-out` | Smooth 500ms fire glow transitions |
+
+## 🌡️ Interactive States
+| Class | Behavior |
+|-------|----------|
+| `group-hover:opacity-70` | Glow ring brightens on icon hover |
+| `hover:scale-105` | Subtle icon growth on hover |
+| `hover:ring-2 hover:ring-orange-400` | Contact boxes pulse with fire ring on hover |
+| `hover:text-orange-500` | Copy buttons glow orange on hover |
+| `activeContact === 'email' ? 'scale-110' : 'scale-100'` | Selected icon pops forward |
+
+## 🖼️ Image Handling
+| Class | Effect |
+|-------|--------|
+| `object-cover w-full h-full` | Maintains aspect ratio while filling container |
+| `brightness-90 saturate-90` | Dulls unselected icons |
+| `brightness-125 saturate-150` | **Enhances selected icons** with fire vibrancy |
+| `rounded-full` | Circular clipping for profile/contact images |
+
+## 📏 Spacing System
+
+### Margin Classes
+| Class | Value | Usage |
+|-------|-------|-------|
+| `mb-4` | 16px | Bottom margin for section spacing |
+| `mb-6` | 24px | Bottom margin for larger gaps |
+| `mb-8` | 32px | Bottom margin for major section breaks |
+| `mb-12` | 48px | Bottom margin for significant spacing |
+| `mb-16` | 64px | Bottom margin for maximum spacing |
+| `md:mb-0` | 0px | Remove bottom margin on tablet+ screens |
+| `mx-auto` | auto | Horizontally center elements |
+| `mx-4` | 16px | Horizontal margin (both sides) |
+| `mt-6` | 24px | Top margin for spacing above elements |
+| `ml-2` | 8px | Left margin for alignment |
+| `mr-2` | 8px | Right margin for alignment |
+| `my-4` | 16px | Vertical margin (top+bottom) |
+
+### Padding Classes
+| Class | Value | Usage |
+|-------|-------|-------|
+| `px-4` | 16px | Horizontal padding (left+right) |
+| `px-6` | 24px | Larger horizontal padding |
+| `py-4` | 16px | Vertical padding (top+bottom) |
+| `py-6` | 24px | Larger vertical padding |
+| `p-3` | 12px | Equal padding on all sides |
+| `p-4` | 16px | Standard padding |
+| `p-6` | 24px | Larger padding |
+| `pt-20` | 80px | Top padding for page offset |
+| `pb-8` | 32px | Bottom padding |
+
+### Max Width Classes
+| Class | Value | Usage |
+|-------|-------|-------|
+| `max-w-xs` | 320px | Extra small max width (contact details) |
+| `max-w-sm` | 384px | Small max width |
+| `max-w-md` | 448px | Medium max width |
+| `max-w-lg` | 512px | Large max width |
+| `max-w-xl` | 576px | Extra large max width (contact section) |
+| `max-w-2xl` | 672px | 2xl max width (text content) |
+| `max-w-4xl` | 896px | 4xl max width (profile section) |
+| `max-w-6xl` | 1152px | 6xl max width (achievements) |
+| `max-w-full` | 100% | Full width container |
+
+### Max Height Classes
+| Class | Value | Usage |
+|-------|-------|-------|
+| `max-h-48` | 192px | Max height for cards |
+| `max-h-64` | 256px | Larger max height |
+| `max-h-screen` | 100vh | Full screen height |
+
+## 🌐 Responsive Breakpoints
+| Prefix | Min Width | Usage |
+|--------|-----------|-------|
+| `sm:` | 640px | Small tablets |
+| `md:` | 768px | Tablets - layout changes (columns, alignment) |
+| `lg:` | 1024px | Laptops |
+| `xl:` | 1280px | Desktops |
+| `2xl:` | 1536px | Large desktops |
+| `group-hover:` | N/A | Parent hover effects on child elements |
+| `activeContact ===` | JS | Dynamic state-based styling |
+
+## 🎭 Shadow Classes
+| Class | Effect | Usage |
+|-------|--------|-------|
+| `shadow-sm` | Small shadow | Subtle elevation |
+| `shadow` | Default shadow | Standard card elevation |
+| `shadow-md` | Medium shadow | Moderate elevation |
+| `shadow-lg` | Large shadow | Strong elevation (cards) |
+| `shadow-xl` | Extra large shadow | Heavy elevation |
+| `shadow-2xl` | 2xl shadow | Maximum elevation |
+| `shadow-inner` | Inner shadow | Inset shadow effect |
+| `shadow-none` | No shadow | Remove shadow |
+| `shadow-[0_0_15px_rgba(251,146,60,0.3)]` | Custom orange glow | Unselected fire icons |
+| `shadow-[0_0_25px_rgba(249,115,22,0.7)]` | Custom fire pulse | Selected fire icons |
+| `hover:shadow-lg` | Hover shadow | Interactive elevation |
+| `hover:shadow-[0_0_20px_rgba(249,115,22,0.5)]` | Hover fire glow | Enhanced fire on hover |
+
+## 🔢 Width & Height Classes
+| Class | Value | Usage |
+|-------|-------|-------|
+| `w-48` | 192px | Width for flip card container |
+| `w-full` | 100% | Full width |
+| `w-auto` | auto | Auto width |
+| `w-32` | 128px | Icon width |
+| `w-5` | 20px | Small width (copy icon) |
+| `h-48` | 192px | Height for flip card |
+| `h-full` | 100% | Full height |
+| `h-7` | 28px | Height for role typing effect |
+| `h-5` | 20px | Small height (copy icon) |
+| `min-h-screen` | 100vh | Minimum screen height |
+
+## 🎯 Flexbox & Grid
+| Class | Purpose |
+|-------|---------|
+| `flex` | Display as flex container |
+| `flex-col` | Column direction |
+| `flex-row` | Row direction |
+| `flex-wrap` | Allow wrapping |
+| `items-center` | Center align items vertically |
+| `items-start` | Align items to start |
+| `justify-center` | Center align items horizontally |
+| `justify-between` | Space between items |
+| `gap-6` | 24px gap between flex/grid items |
+| `gap-8` | 32px gap between flex/grid items |
+| `space-x-4` | 16px horizontal space between children |
+| `space-x-12` | 48px horizontal space between children |
+| `md:space-x-6` | 24px space on tablet+ |
+| `grid` | Display as grid |
+| `grid-cols-1` | 1 column grid |
+| `md:grid-cols-2` | 2 columns on tablet+ |
+
+## 🎨 Typography
+| Class | Effect |
+|-------|--------|
+| `text-center` | Center align text |
+| `md:text-left` | Left align on tablet+ |
+| `text-lg` | Large text (18px) |
+| `md:text-xl` | Extra large on tablet+ (20px) |
+| `text-2xl` | 2xl text (24px) |
+| `text-sm` | Small text (14px) |
+| `text-base` | Base text (16px) |
+| `font-bold` | Bold weight (700) |
+| `font-semibold` | Semibold weight (600) |
+| `break-all` | Break words at any character |
+| `text-foreground` | Theme foreground color |
+| `text-muted-foreground` | Muted text color |
+| `text-primary` | Primary color |
+| `text-orange-500` | Fire orange color |
+
+## 🎨 Border & Radius
+| Class | Effect |
+|-------|--------|
+| `rounded-full` | 9999px radius (perfect circle) |
+| `rounded-lg` | 8px radius (large) |
+| `rounded-md` | 6px radius (medium) |
+| `rounded` | 4px radius (default) |
+| `border-2` | 2px border width |
+| `border-4` | 4px border width |
+| `border-6` | 6px border width |
+| `border-orange-300` | Orange border color |
+| `border-orange-500` | Fire orange border |
+| `overflow-hidden` | Hide overflow content |
+| `border` | 1px default border |
+
+## 🎭 State Variants
+| Prefix | Trigger | Example |
+|--------|---------|---------|
+| `hover:` | Mouse hover | `hover:scale-105` |
+| `focus:` | Element focused | `focus:ring-2` |
+| `active:` | Element active | `active:scale-95` |
+| `disabled:` | Element disabled | `disabled:opacity-50` |
+| `group-hover:` | Parent hover | `group-hover:opacity-100` |
+| `md:` | Tablet+ screens | `md:flex-row` |
+| `lg:` | Laptop+ screens | `lg:text-xl` |
+
+## 💡 Pro Tips
+
+### 1. **Fire Glow Formula**
+```
+shadow-[0_0_{size}px_rgba({R},{G},{B},{opacity})]
+→ Orange: 249,115,22 | Red-Orange: 234,88,12
+```
+
+### 2. **Animation Priority**
+Selected state > Hover state > Base state  
+(Ensures fire pulse dominates visual hierarchy)
+
+### 3. **Border Strategy**
+- Outer border: `border-4` (main container)
+- Glow ring: `border-2` (absolute positioned ring)
+- Prevents visual thickness conflicts
+
+### 4. **Spacing Scale Reference**
+```
+0 = 0px
+1 = 4px
+2 = 8px
+3 = 12px
+4 = 16px
+5 = 20px
+6 = 24px
+8 = 32px
+10 = 40px
+12 = 48px
+16 = 64px
+20 = 80px
+24 = 96px
+32 = 128px
+40 = 160px
+48 = 192px
+56 = 224px
+64 = 256px
+```
+
+### 5. **Responsive Strategy**
+- Mobile first: Default styles for mobile
+- `md:` for tablets (768px+)
+- `lg:` for laptops (1024px+)
+- Use `md:flex-row` to switch from column to row layout
+
+### 6. **Performance Note**
+Use `transition-all` sparingly - we limit to critical interactive elements only
+
+## 🚫 Deprecated Patterns
+| Avoid | Use Instead | Why |
+|-------|-------------|-----|
+| `border-yellow-400` | `border-orange-500` | Yellow lacks fire intensity |
+| `animate-pulse` (default) | `animate-pulse-fire` | Default pulse is too subtle for fire theme |
+| `opacity-50` on icons | `brightness-90 saturate-90` | Preserves icon detail while dimming |
+| `shadow-md` for icons | `shadow-[0_0_15px_rgba(251,146,60,0.3)]` | Custom fire glow is more thematic |
+
+## 🎯 Quick Reference Cheat Sheet
+
+### Most Used Classes
+```jsx
+// Layout
+className="flex flex-col md:flex-row items-center max-w-4xl mx-auto"
+
+// Spacing
+className="mb-8 px-4 pt-20"
+
+// Fire Theme
+className="border-orange-500 shadow-[0_0_25px_rgba(249,115,22,0.7)]"
+
+// Interactive
+className="hover:scale-105 transition-all duration-500"
+
+// Typography
+className="text-lg md:text-xl font-semibold text-orange-500"
+```
+
+## 🔑 Key Philosophy
+> **"Fire should feel alive"**  
+> - Unselected: *Smoldering embers* (dull orange glow)  
+> - Hover: *Flame flicker* (enhanced glow + scale)  
+> - Selected: *Blazing core* (intense pulse + vibrancy)  
+
+✨ *Update this file whenever adding new fire-themed utilities!* ✨
