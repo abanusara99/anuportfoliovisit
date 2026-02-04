@@ -4,9 +4,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true, // Keep this true as scaffold uses TS components internally
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+
   images: {
     remotePatterns: [
       {

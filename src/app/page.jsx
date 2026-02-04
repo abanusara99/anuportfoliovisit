@@ -31,7 +31,7 @@ export default function Home() {
   const [emailCount, setEmailCount] = useState(0);
   const [messageCount, setMessageCount] = useState(0);
 
-  const [showEmailDisplay, setShowEmailDisplay] = useState(false);
+  const [activeContact, setActiveContact] = useState(null);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -68,8 +68,8 @@ export default function Home() {
     return () => clearTimeout(timeoutId);
   }, [currentRoleIndex, isDeleting, charIndex]);
 
-  const handleGmailIconClick = () => {
-    setShowEmailDisplay(!showEmailDisplay);
+  const handleContactClick = (contactType) => {
+    setActiveContact(activeContact === contactType ? null : contactType);
   };
 
   const handleCopyEmail = async (emailToCopy) => {
@@ -92,15 +92,15 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen pt-20 px-4 bg-background text-foreground">
       
-      {/* Profile Section */}
+      {/* ============================================
+         PROFILE SECTION
+         ============================================ */}
       <div id="about" className="text-center mb-12">
-        
-        {/* RESPONSIVE FLEX CONTAINER - Vertical on mobile, horizontal on tablet/desktop */}
-        <div className="flex flex-col items-center md:flex-row md:items-start md:space-x-12 max-w-4xl mx-auto px-4 py-8">
+        <div className="flex flex-col items-center md:flex-row md:items-start md:space-x-20 max-w-4xl mx-auto px-4 py-8">
           
-          {/* ===== COLUMN 1: Flipping Card ===== */}
+          {/* Column 1: Flipping Card */}
           <div
-            className="flip-card-container w-48 h-48 mb-6 md:mb-0"
+            className="flip-card-container w-48 h-48 mb-6 md:mb-0 flex-shrink-0"
             onMouseEnter={() => setIsCardFlipped(true)}
             onMouseLeave={() => setIsCardFlipped(false)}
             onTouchEnd={(e) => {
@@ -108,34 +108,36 @@ export default function Home() {
               setIsCardFlipped(!isCardFlipped);
             }}
           >
-            <div className={`flip-card ${isCardFlipped ? 'flipped' : ''}`}>
-              <div className="flip-card-front">
-                <Image
-                  src="/img/aimeya.jpg"
-                  alt="Anupriya Balasubramanian"
-                  width={192}
-                  height={192}
-                  style={{ height: 'auto', width: '100%' }}
-                  className="object-cover w-full h-full profile-image"
-                  data-ai-hint="profile woman"
-                  priority
-                />
+            <div className={`flip-card ${isCardFlipped ? 'flipped' : ''} w-full h-full`}>
+              <div className="flip-card-front w-full h-full">
+                <div className="flip-card-inner rounded-full overflow-hidden border-4 border-amber-600 w-full h-full aspect-square">
+                  <Image
+                    src="/img/aimeya.jpg"
+                    alt="Anupriya Balasubramanian"
+                    width={192}
+                    height={192}
+                    className="object-cover w-full h-full"
+                    data-ai-hint="profile woman"
+                    priority
+                  />
+                </div>
               </div>
-              <div className="flip-card-back">
-                <Image
-                  src="/img/anu2.jpg"
-                  alt="Anupriya Balasubramanian - Back"
-                  width={192}
-                  height={192}
-                  style={{ height: 'auto', width: '100%' }}
-                  className="object-cover w-full h-full profile-image"
-                  data-ai-hint="profile woman alternate"
-                />
+              <div className="flip-card-back w-full h-full">
+                <div className="flip-card-inner rounded-full overflow-hidden border-4 border-amber-600 w-full h-full aspect-square">
+                  <Image
+                    src="/img/anu2.jpg"
+                    alt="Anupriya Balasubramanian - Back"
+                    width={192}
+                    height={192}
+                    className="object-cover w-full h-full"
+                    data-ai-hint="profile woman alternate"
+                  />
+                </div>
               </div>
             </div>
           </div>
-
-          {/* ===== COLUMN 2: Introduction Text ===== */}
+          
+          {/* Column 2: Introduction Text */}
           <div className="text-lg md:text-xl max-w-2xl text-center md:text-left">
             <p>
               I am <b>Anupriya Balasubramanian</b>.
@@ -158,11 +160,12 @@ export default function Home() {
             </Button>
           </div>
           
-        </div> {/* Close responsive flex container */}
-        
-      </div> {/* Close "about" section */}
+        </div>
+      </div>
 
-      {/* Social Links Section */}
+      {/* ============================================
+         SOCIAL LINKS SECTION
+         ============================================ */}
       <div className="pt-16 text-center w-full max-w-4xl mx-auto mb-12">
         <div className="flex justify-center space-x-4 md:space-x-6">
           <a href="https://github.com/abanusara99" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="transition-transform transform hover:scale-110 hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out p-2 rounded-lg">
@@ -181,13 +184,15 @@ export default function Home() {
             <Image src="/img/instagram.png" alt="Instagram" width={32} height={32} />
           </a>
           <a href="https://www.quora.com/profile/Anupriya-B-16" target="_blank" rel="noopener noreferrer" aria-label="Quora Profile" className="transition-transform transform hover:scale-110 hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out p-2 rounded-lg">
-            <Image src="/img/qov.png" alt="Instagram" width={32} height={32} />
+            <Image src="/img/qov.png" alt="Quora" width={32} height={32} />
           </a>
         </div>
         <br/>
       </div>
 
-      {/* Skills Section */}
+      {/* ============================================
+         SKILLS SECTION
+         ============================================ */}
       <div id="skills" className="pt-16 text-center w-full max-w-4xl mx-auto mb-16">
         <h2 className="text-2xl font-bold mb-8">Skills</h2>
         <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
@@ -258,7 +263,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Achievements Section */}
+      {/* ============================================
+         ACHIEVEMENTS SECTION
+         ============================================ */}
       <div id="achievements" className="pt-16 text-center w-full max-w-6xl mx-auto mb-16">
         <h2 className="text-2xl font-bold mb-12">Achievements</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -321,7 +328,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Projects & Portfolio Section */}
+      {/* ============================================
+         PROJECTS & PORTFOLIO SECTION
+         ============================================ */}
       <div id="portfolio" className="pt-16 text-center w-full max-w-6xl mx-auto mb-16">
         <h2 className="text-2xl font-bold mb-12">Projects & Portfolio</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -531,59 +540,136 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Contact Section */}
-      <div id="contact" className="pt-16 text-center w-full max-w-xl mx-auto mb-16">
-        <h2 className="text-2xl font-bold mb-4">Contact Me</h2>
-        <p className="mb-8 text-muted-foreground">
-          If you like my portfolio and want to work as a team, click the Gmail icon below to reveal and copy my email address.
-        </p>
-        <div className="flex flex-col items-center">
-          <button
-            onClick={handleGmailIconClick}
-            aria-label="Show/Hide email address"
-            className="transition-transform transform hover:scale-110 inline-block p-3 rounded-full shadow-lg hover:shadow-accent/50 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-            style={{border: '4px solid hsl(var(--fire-border))'}}
-          >
-            <Image
-              src="/img/gmail.png"
-              alt="Gmail"
-              width={64}
-              height={64}
-              className="rounded-full"
-            />
-          </button>
-
-          {showEmailDisplay && (
-            <div className="mt-6 space-y-4 w-full max-w-md mx-auto">
-              <div className="p-3 bg-card text-card-foreground rounded-lg shadow-lg flex items-center justify-between ring-1 ring-border">
-                <span className="text-sm sm:text-base break-all mr-2">abanubala77@gmail.com</span>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => handleCopyEmail('abanubala77@gmail.com')}
-                  aria-label="Copy abanubala77@gmail.com"
-                  className="text-foreground hover:text-primary flex-shrink-0"
-                >
-                  <Copy className="h-5 w-5" />
-                </Button>
-              </div>
-              <div className="p-3 bg-card text-card-foreground rounded-lg shadow-lg flex items-center justify-between ring-1 ring-border">
-                <span className="text-sm sm:text-base break-all mr-2">anupriyabalasubramanian003@gmail.com</span>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => handleCopyEmail('anupriyabalasubramanian003@gmail.com')}
-                  aria-label="Copy anupriyabalasubramanian003@gmail.com"
-                  className="text-foreground hover:text-primary flex-shrink-0"
-                >
-                  <Copy className="h-5 w-5" />
-                </Button>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
+{/* ============================================
+   CONTACT SECTION - GLOWING ICONS
+   ============================================ */}
+<div id="contact" className="pt-16 text-center w-full max-w-4xl mx-auto mb-16">
+  <h2 className="text-2xl font-bold mb-4">Contact Me</h2>
+  <p className="mb-8 text-muted-foreground">
+    Click an icon to reveal contact details
+  </p>
+  
+  {/* Responsive Columns: Top-aligned on desktop, centered on mobile */}
+  <div className="flex flex-col md:flex-row md:space-x-16 items-center justify-center md:items-start gap-8">
+    
+    {/* COLUMN 1: EMAIL */}
+    <div className="flex flex-col items-center">
+      <button
+        onClick={() => handleContactClick('email')}
+        aria-label="Toggle email display"
+        className={`group relative transition-all duration-500 ease-in-out inline-block p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-4 ${
+          activeContact === 'email' 
+            ? 'scale-110 opacity-100 border-amber-500 shadow-[0_0_25px_rgba(245,158,11,0.6)]' 
+            : 'scale-100 opacity-100 border-gray-300 shadow-[0_0_15px_rgba(156,163,175,0.3)] hover:shadow-[0_0_20px_rgba(156,163,175,0.5)] hover:scale-105'
+        }`}
+      >
+        {/* Glow Ring Animation */}
+        <div className={`absolute inset-0 rounded-full border-2 transition-all duration-500 ${
+          activeContact === 'email' 
+            ? 'border-amber-400 opacity-100 animate-pulse' 
+            : 'border-gray-400 opacity-50 group-hover:opacity-70'
+        }`} />
+        
+        <Image
+          src="/img/gmail.png"
+          alt="Email"
+          width={64}
+          height={64}
+          className={`rounded-full transition-all duration-500 ${
+            activeContact === 'email' 
+              ? 'brightness-125 saturate-150' 
+              : 'brightness-90 saturate-90 group-hover:brightness-100'
+          }`}
+        />
+      </button>
       
-    </div> {/* Close main container */}
+      {activeContact === 'email' && (
+        <div className="mt-6 space-y-3 w-full max-w-xs animate-fade-in">
+          <div className="p-3 bg-card text-card-foreground rounded-lg shadow-lg flex items-center justify-between ring-1 ring-border hover:ring-2 hover:ring-amber-400 transition-all duration-300">
+            <span className="text-sm sm:text-base break-all mr-2 font-medium">abanubala77@gmail.com</span>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => handleCopyEmail('abanubala77@gmail.com')}
+              aria-label="Copy email"
+              className="text-foreground hover:text-primary hover:scale-110 transition-transform duration-200"
+            >
+              <Copy className="h-5 w-5" />
+            </Button>
+          </div>
+          <div className="p-3 bg-card text-card-foreground rounded-lg shadow-lg flex items-center justify-between ring-1 ring-border hover:ring-2 hover:ring-amber-400 transition-all duration-300">
+            <span className="text-sm sm:text-base break-all mr-2 font-medium">anupriyabalasubramanian003@gmail.com</span>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => handleCopyEmail('anupriyabalasubramanian003@gmail.com')}
+              aria-label="Copy email"
+              className="text-foreground hover:text-primary hover:scale-110 transition-transform duration-200"
+            >
+              <Copy className="h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      )}
+    </div>
+    
+    {/* COLUMN 2: PHONE */}
+    <div className="flex flex-col items-center">
+      <button
+        onClick={() => handleContactClick('phone')}
+        aria-label="Toggle phone display"
+        className={`group relative transition-all duration-500 ease-in-out inline-block p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-4 ${
+          activeContact === 'phone' 
+            ? 'scale-110 opacity-100 border-amber-500 shadow-[0_0_25px_rgba(245,158,11,0.6)]' 
+            : 'scale-100 opacity-100 border-gray-300 shadow-[0_0_15px_rgba(156,163,175,0.3)] hover:shadow-[0_0_20px_rgba(156,163,175,0.5)] hover:scale-105'
+        }`}
+      >
+        {/* Glow Ring Animation */}
+        <div className={`absolute inset-0 rounded-full border-2 transition-all duration-500 ${
+          activeContact === 'phone' 
+            ? 'border-amber-400 opacity-100 animate-pulse' 
+            : 'border-gray-400 opacity-50 group-hover:opacity-70'
+        }`} />
+        
+        <Image
+          src="/img/call.jpg"
+          alt="Phone"
+          width={64}
+          height={64}
+          className={`rounded-full transition-all duration-500 ${
+            activeContact === 'phone' 
+              ? 'brightness-125 saturate-150' 
+              : 'brightness-90 saturate-90 group-hover:brightness-100'
+          }`}
+        />
+      </button>
+      
+      {activeContact === 'phone' && (
+        <div className="mt-6 space-y-3 w-full max-w-xs animate-fade-in">
+          <div className="p-3 bg-card text-card-foreground rounded-lg shadow-lg flex items-center justify-between ring-1 ring-border hover:ring-2 hover:ring-amber-400 transition-all duration-300">
+            <span className="text-sm sm:text-base break-all mr-2 font-medium">+91 6281209403</span>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => {
+                navigator.clipboard.writeText('+91 6281209403');
+                toast({
+                  title: "Phone Copied!",
+                  description: "Phone number copied to clipboard"
+                });
+              }}
+              aria-label="Copy phone number"
+              className="text-foreground hover:text-primary hover:scale-110 transition-transform duration-200"
+            >
+              <Copy className="h-5 w-5" />
+            </Button>
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+</div>
+      
+    </div>
   );
 }
