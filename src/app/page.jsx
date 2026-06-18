@@ -286,20 +286,6 @@ export default function Home() {
           
           <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
             <CardContent className="pt-6 p-4">
-              <CardTitle>My courses in udemy</CardTitle>
-              <CardDescription className="mt-2 text-muted-foreground">
-                I have uploaded my self courses in Udemy, in concept of  "More Practical and Less theory". You can visit the page to view my courses. I uploaded my courses around 2024. 
-              </CardDescription>
-            </CardContent>
-            <CardFooter className="p-4">
-              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                <a href="https://www.udemy.com/user/anupriya-balasubramanian/" target="_blank" rel="noopener noreferrer">View Achievement</a>
-              </Button>
-            </CardFooter>
-          </Card>            
-
-          <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
-            <CardContent className="pt-6 p-4">
               <CardTitle>Internship from Mentorness</CardTitle>
               <CardDescription className="mt-2 text-muted-foreground">
                 I have done the internship ( the company also called it as workshop) in data science. I attended from November 2023 to October 2023.
