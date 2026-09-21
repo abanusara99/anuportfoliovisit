@@ -282,22 +282,7 @@ export default function Home() {
                 <a href="https://www.credly.com/users/anupriya-balasubramanian" target="_blank" rel="noopener noreferrer">View Achievement</a>
               </Button>
             </CardFooter>
-          </Card>
-          
-          <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
-            <CardContent className="pt-6 p-4">
-              <CardTitle>Internship from Mentorness</CardTitle>
-              <CardDescription className="mt-2 text-muted-foreground">
-                I have done the internship ( the company also called it as workshop) in data science. I attended from November 2023 to October 2023.
-              </CardDescription>
-            </CardContent>
-            <CardFooter className="p-4">
-              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                <a href="https://github.com/abanusara99/mentorness/blob/main/Anupriya%20Balasubramanian_Certificate_1.png" target="_blank" rel="noopener noreferrer">View Achievement</a>
-              </Button>
-            </CardFooter>
-          </Card>
-          
+          </Card>          
           <Card className="shadow-lg bg-card text-card-foreground rounded-lg overflow-hidden hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out card-with-theme-border">
             <CardContent className="pt-6 p-4">
               <CardTitle>AI for India 2.0</CardTitle>
@@ -638,7 +623,7 @@ export default function Home() {
               variant="ghost"
               size="icon"
               onClick={() => {
-                navigator.clipboard.writeText('+91 6281209403');
+                navigator.clipboard.writeText('+1 3479028260');
                 toast({
                   title: "Phone Copied!",
                   description: "Phone number copied to clipboard"
