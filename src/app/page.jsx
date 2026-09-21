@@ -618,7 +618,7 @@ export default function Home() {
       {activeContact === 'phone' && (
         <div className="mt-6 space-y-3 w-full max-w-xs animate-fade-in">
           <div className="p-3 bg-card text-card-foreground rounded-lg shadow-lg flex items-center justify-between ring-1 ring-border hover:ring-2 hover:ring-orange-400 transition-all duration-300">
-            <span className="text-sm sm:text-base break-all mr-2 font-medium">+91 6281209403</span>
+            <span className="text-sm sm:text-base break-all mr-2 font-medium">+1 3479028260</span>
             <Button
               variant="ghost"
               size="icon"
