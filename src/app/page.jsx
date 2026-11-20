@@ -196,6 +196,10 @@ export default function Home() {
       <div id="skills" className="pt-16 text-center w-full max-w-4xl mx-auto mb-16">
         <h2 className="text-2xl font-bold mb-8">Skills</h2>
         <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8">
+          <a href="https://www.microsoft.com/en-us/microsoft-365/products-apps-services" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center transition-transform transform hover:scale-105 text-foreground hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out p-2 rounded-lg" title="Microsoft Office">
+            <Image src="/img/msoffice.png" alt="MS Office" width={64} height={64} className="rounded-md mb-2" data-ai-hint="office suite"/>
+            <span className="text-sm">MS Office</span>
+          </a>
           <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center transition-transform transform hover:scale-105 text-foreground hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out p-2 rounded-lg" title="Python">
             <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" width={64} height={64} className="rounded-md mb-2"/>
             <span className="text-sm">Python</span>
@@ -223,10 +227,6 @@ export default function Home() {
           <a href="https://en.wikipedia.org/wiki/SQL" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center transition-transform transform hover:scale-105 text-foreground hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out p-2 rounded-lg" title="SQL">
             <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg" alt="SQL" width={64} height={64} className="rounded-md mb-2" data-ai-hint="database symbol"/>
             <span className="text-sm">SQL</span>
-          </a>
-          <a href="https://www.microsoft.com/en-us/microsoft-365/products-apps-services" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center transition-transform transform hover:scale-105 text-foreground hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out p-2 rounded-lg" title="Microsoft Office">
-            <Image src="/img/msoffice.png" alt="MS Office" width={64} height={64} className="rounded-md mb-2" data-ai-hint="office suite"/>
-            <span className="text-sm">MS Office</span>
           </a>
           <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center transition-transform transform hover:scale-105 text-foreground hover:shadow-[0_0_15px_hsl(30,100%,70%,0.3)] transition-shadow duration-200 ease-out p-2 rounded-lg" title="JavaScript">
             <Image src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" width={64} height={64} className="rounded-md mb-2"/>
